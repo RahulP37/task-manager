@@ -20,13 +20,10 @@ export class App {
 
 
   onselectuser(ids: string) {
-    for (const key of this.users) {
-      if (key.id === ids) {
-        this.name_used_in_task = key.name;
-        break;
-      }
+    const selectedUser = this.users.find((u) => u.id === ids);
 
-    }
+  
+  this.name_used_in_task = selectedUser? selectedUser.name:'';
 
     console.log('selected user with id', ids);
   }
