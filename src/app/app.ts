@@ -16,7 +16,7 @@ import { Tasks } from './tasks/tasks';
 export class App {
   protected readonly title = signal('my-first-app');
   users = DUMMY_USERS;
-  name_used_in_task!: string;
+  name_used_in_task?: string;
 
 
   onselectuser(ids: string) {

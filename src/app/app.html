@@ -1,19 +1,15 @@
 <app-header></app-header>
 <main>
      <ul id="users">
+          @for (user of users; track user.id) {
           <li>
-               <app-user  [user]="users[0]" (select)="onselectuser($event)" />
+               <app-user  [user]="user" (select)="onselectuser($event)" />
           </li>
-          <li>
-               <app-user  [user]="users[1]"  (select)="onselectuser($event)" />
-          </li>
-          <li>
-               <app-user  [user]="users[2]" (select)="onselectuser($event)"/>
-          </li>
-          <li>
-               <app-user [user]="users[3]" (select)="onselectuser($event)" />
-          </li>
+     }
      </ul>
-
+     @if(name_used_in_task){
       <app-tasks [name]="name_used_in_task"></app-tasks>
+     }@else {
+          <p id="fallback"> Select a user </p>
+     }
 </main>
