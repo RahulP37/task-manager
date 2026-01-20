@@ -27,4 +27,8 @@ export class App {
 
     console.log('selected user with id', ids);
   }
+
+  get selectedUser(){
+    return this.users.find((user)=> user.name===this.name_used_in_task);
+  }
 }

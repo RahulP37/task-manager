@@ -10,8 +10,8 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './tasks.css',
 })
 export class Tasks {
-  @Input() name?:string;
-   
+  @Input({required:true}) name!:string;
+   @Input({required:true}) id!:string;
  tasks_list = [
     {
       id: 't1',
@@ -38,4 +38,14 @@ export class Tasks {
     },
   ];
 
+
+
+  get selectedUserTasks(){
+    return this.tasks_list.filter((task)=>task.userId===this.id);
+  }
+
+
+  onCompleteTask_in_tasks(id:string){
+    this.tasks_list=this.tasks_list.filter((task)=>task.id!==id) ;
+   }
 }
