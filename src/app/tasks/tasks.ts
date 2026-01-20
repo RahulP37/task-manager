@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 export class Tasks {
   @Input() name?:string;
    
- tasks = [
+ tasks_list = [
     {
       id: 't1',
       userId: 'u1',

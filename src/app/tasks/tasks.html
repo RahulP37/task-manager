@@ -8,11 +8,12 @@
     </header>
 
     <ul>
-        @for (task of tasks; track $tasks.id) {}
+        @for (task of tasks_list; track task.id) {
         <li>
             <app-task/>
 
         </li>
+    }
  
     </ul>
  </section>
