@@ -3,6 +3,7 @@ import { NewTask } from './new-task/new-task';
 import { DUMMY_USERS } from '../dummy-users';
 import { Task } from "./task/task";
 import { Title } from '@angular/platform-browser';
+import { newtaskdata } from './task/task.mode';
 @Component({
   selector: 'app-tasks',
   imports: [Task,NewTask],
@@ -60,4 +61,23 @@ export class Tasks {
    oncanceladdtask(){
     this.isaddingtask=false;
    }
+
+
+
+
+   
+  onaddtask(taskdata:newtaskdata){
+    this.tasks_list.push({
+      id:new Date().getTime().toString(),
+      userId:this.id,
+      title:taskdata.title,
+      summary:taskdata.summary,
+      dueDate:taskdata.date
+
+    })
+
+    this.isaddingtask=false;
+  
+
+  }
 }
