@@ -1,17 +1,18 @@
 import { Component, computed, Input } from '@angular/core';
- 
+import { NewTask } from './new-task/new-task';
 import { DUMMY_USERS } from '../dummy-users';
 import { Task } from "./task/task";
 import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-tasks',
-  imports: [Task],
+  imports: [Task,NewTask],
   templateUrl: './tasks.html',
   styleUrl: './tasks.css',
 })
 export class Tasks {
   @Input({required:true}) name!:string;
    @Input({required:true}) id!:string;
+   isaddingtask:boolean=false;
  tasks_list = [
     {
       id: 't1',
@@ -47,5 +48,16 @@ export class Tasks {
 
   onCompleteTask_in_tasks(id:string){
     this.tasks_list=this.tasks_list.filter((task)=>task.id!==id) ;
+   }
+
+
+   onstartaddtask(){
+    this.isaddingtask=true;
+
+   }
+
+
+   oncanceladdtask(){
+    this.isaddingtask=false;
    }
 }
